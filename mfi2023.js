@@ -1,4 +1,4 @@
-// 2022 income limits effective June 15th
+// 2023 income limits effective June 15th
 var incomeLimits = {
     1: {
         16350: 20,
