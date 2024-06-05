@@ -1,10 +1,10 @@
 
-// 2022 income limits effective June 15th
+// 2023 income limits effective June 15th
 var incomeLimits = {
     1: {
         16350: 20,
         24550: 30,
-        32700: 40,
+        32700: 40,75000.00
         40900: 50,
         49080: 60,
         53150: 65,
