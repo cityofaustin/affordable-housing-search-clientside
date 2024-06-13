@@ -5,3 +5,6 @@ artifacts:
     - '**/*'
   discard-paths: no
   base-directory: .
+  exclude-paths:
+    - '**/.*/**/*'
+    - '**/.*'
