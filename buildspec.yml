@@ -7,4 +7,4 @@ artifacts:
   base-directory: .
 post_build:
    commands:
-     - aws cloudfront create-invalidation --distribution-id E3V5SYI6SJ4XXZ --paths '/*'
+     - aws cloudfront create-invalidation --distribution-id=E3V5SYI6SJ4XXZ --paths '/*'
