@@ -173,9 +173,10 @@ $(document).ready(function() {
 
 function getAllProperties() {
   $.get(data_hub_api_endpoint, function(response) {
+    console.log(response)
     var propertiesTemp = response.data;
     for (var property of propertiesTemp) {
-      if (property.lat && property.longitude) {
+      if (property.lat && property.longitude && (property.affordability_expiration == null || new Date(property.affordability_expiration) >= new Date())) {
         properties[property.id] = property;
       }
     }
