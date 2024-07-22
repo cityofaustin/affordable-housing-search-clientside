@@ -31,7 +31,7 @@ function getMFILevel(yearlyIncome, householdSize) {
   if (size < 1 || income < yearlyIncome) {
     var mfi = 200;
   } else if (income === 0) {
-    var mfi = 20;
+    var mfi = 30;
   } else {
     var mfi = incomeLimits[size][income];
   }
@@ -173,9 +173,10 @@ $(document).ready(function() {
 
 function getAllProperties() {
   $.get(data_hub_api_endpoint, function(response) {
+    console.log(response)
     var propertiesTemp = response.data;
     for (var property of propertiesTemp) {
-      if (property.lat && property.longitude) {
+      if (property.lat && property.longitude && (property.affordability_expiration == null || new Date(property.affordability_expiration) >= new Date())) {
         properties[property.id] = property;
       }
     }
@@ -255,7 +256,7 @@ function renderMarkers2(map, range) {
         if ((property.community_disabled || property.total_accessible_ir_units ) && property.accepts_section_8) {
           mfiPropertyMatches.push(property.id);
         }
-      } else if (userOptions.ADA === "YES" && (property.community_disabled ||property.total_accessible_ir_units )) {
+      } else if (userOptions.ADA === "YES" && (property.community_disabled || property.total_accessible_ir_units )) {
           mfiPropertyMatches.push(property.id);
       } else if (userOptions.section8 && property.accepts_section_8) {
         mfiPropertyMatches.push(property.id);
